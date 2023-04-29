@@ -9,7 +9,7 @@ namespace RulesEngineDesignPattern.Utilities
         {
             _rules.AddRange(rules);
         }
-        public async Task CalculateTax(TaxPayer taxPayer)
+        public async Task CalculateTaxPercentage(TaxPayer taxPayer)
         {
             _rules.ForEach(r => r.CalculateTax(taxPayer));
         }

@@ -19,5 +19,19 @@ namespace RulesEngineDesignPattern.Tests
 
             Assert.Equal(taxPayer.TaxAmount, 0);
         }
+
+        [Fact]
+        public async Task PayerIsSingle_TaxShouldBe10PercentOfSallary()
+        {
+            var taxPayer = new TaxPayer
+            {
+                IsSingle = true,
+                Sallary = 4500
+            };
+
+            await _service.CalculateTax(taxPayer);
+
+            Assert.Equal(taxPayer.TaxAmount, 450);
+        }
     }
 }

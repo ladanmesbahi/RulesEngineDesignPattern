@@ -4,6 +4,6 @@ namespace RulesEngineDesignPattern.Utilities
 {
     public interface ITaxCalculationEngine
     {
-        Task CalculateTax(TaxPayer taxPayer);
+        Task CalculateTaxPercentage(TaxPayer taxPayer);
     }
 }

@@ -10,11 +10,12 @@ namespace RulesEngineDesignPattern.Services.Implementations
         {
             var ruleType = typeof(ITaxCalculationRule);
             var rules = this.GetType().Assembly.GetTypes()
-                .Where(r => r.IsAssignableFrom(ruleType) && !r.IsInterface)
+                .Where(r => ruleType.IsAssignableFrom(r) && !r.IsInterface)
                 .Select(r => Activator.CreateInstance(r) as ITaxCalculationRule);
 
             var engine = new TaxCalculationEngine(rules);
-            engine.CalculateTax(taxPayer);
+            engine.CalculateTaxPercentage(taxPayer);
+            taxPayer.CalculateTax();
         }
     }
 }

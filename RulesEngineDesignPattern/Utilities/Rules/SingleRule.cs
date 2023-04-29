@@ -2,12 +2,12 @@
 
 namespace RulesEngineDesignPattern.Utilities.Rules
 {
-    public class RetiredRule : ITaxCalculationRule
+    public class SingleRule : ITaxCalculationRule
     {
         public async Task CalculateTax(TaxPayer taxPayer)
         {
-            if (taxPayer.IsRetired)
-                taxPayer.TaxPercentage = 0;
+            if (taxPayer.IsSingle)
+                taxPayer.TaxPercentage += 10;
         }
     }
 }
