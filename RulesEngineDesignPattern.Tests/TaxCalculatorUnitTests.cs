@@ -33,5 +33,18 @@ namespace RulesEngineDesignPattern.Tests
 
             Assert.Equal(taxPayer.TaxAmount, 450);
         }
+
+        [Fact]
+        public async Task SallaryIsHigherThan10000_TaxShouldBe20PercentOfSallary()
+        {
+            var taxPayer = new TaxPayer
+            {
+                Sallary = 15000
+            };
+
+            await _service.CalculateTax(taxPayer);
+
+            Assert.Equal(taxPayer.TaxAmount, 3000);
+        }
     }
 }
